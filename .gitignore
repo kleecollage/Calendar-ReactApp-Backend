@@ -3,4 +3,4 @@ node_modules/
 
 # Ignorar el archivo .env
 .env
-dbdata
+dbdata.txt
