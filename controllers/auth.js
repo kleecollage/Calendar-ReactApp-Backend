@@ -13,8 +13,8 @@ const crearUsuario = async(req, res = response) => {
                 msg: 'Este correo electronico ya existe en la base de datos'
             })
         }
+        
         usuario = new Usuario(req.body);
-
         // encriptar contraseña
         const salt = bcrypt.genSaltSync();
         usuario.password = bcrypt.hashSync(password, salt);
@@ -83,7 +83,6 @@ const loginUsuario = async (req, res = response) => {
 
 const revalidarToken = async(req, res = response) => {
     const { uid, name} = req
-
     // generar un nuevo JWT y retornalo en esta peticion
     const token = await generarJWT(uid, name)
     res.json({
